@@ -35,7 +35,9 @@ uint8_t tlvReader_ReadByte(tlvReader *self, bool *tag)
     {
         *tag = false;
     }
-    return *data;
+    uint8_t ret = *data;
+    free(data);
+    return ret;
 }
 
 uint8_t *tlvReader_ReadBytes(tlvReader *self, uint32_t len, uint32_t *readed)
